@@ -2,8 +2,12 @@
 name = "rust-wasm"
 version = "0.1.0"
 authors = ["Mark Temple-Heald <mtempleheald@hotmail.com>"]
+description = "MTH Rust Wasm playground"
 edition = "2018"
+license = "MIT/Apache-2.0"
+repository = "https://github.com/mtempleheald/rust-wasm"
 
+# cdylib for wasm, rlib for unit testing
 [lib]
 crate-type = ["cdylib", "rlib"]
 
