@@ -2,9 +2,10 @@
 
 A project for me to get to grips with Rust and Web Assembly.
 I dabbled a while back, before wasm-pack but time got away from me.
-Not sure what this will end up being, likely one of:
+Not sure what this will end up being, likely one of (or a combination of):
 - a small, probably 2D game
-- seeing what a boring enterprise web app could be if made more "gamey"
+- seeing what a boring enterprise web app could be without JS [e.g.](https://blog.logrocket.com/the-current-state-of-rust-web-frameworks/)
+- a fractal generator on a 2D canvas
 
 I know it isn't the official WASM line but I really am interested in a world without JavaScript, or any runtime errors.
 Svelte and Elm also interest me, but could wasm be the silver bullet?
@@ -14,6 +15,7 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 - [Rust WASM book](https://rustwasm.github.io/docs/book) - The official resource on Rust + Web Assembly
 - [Doug Milford demo](https://github.com/dmilford/rust-3d-demo) - Seeing his video on YouTube motivated me to start this
 - [Wasm-pack book](https://rustwasm.github.io/wasm-pack/book/) - the current/future of build of rust/wasm applications, uses npm for now
+- [Wasm Bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) - wasm-bindgen reference inc WebGL examples
 
 ## Useful commands
 
@@ -46,7 +48,7 @@ Must support hot reload during development
 
 Must support hashing of wasm modules to facilitate cache-busting, again there are multiple approaches
 - Use [HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin) to generate hashes for us as per Doug Milford's demo.
-- Magic.  I can't work out how the Rustwasm book approach does this (webpack default auto hashing?) but the output bootstrap file references <hash>.module.wasm.
+- Magic.  I can't work out how the Rustwasm book approach does this (webpack default auto hashing?) but the output bootstrap file references _hash_.module.wasm.
   It doesn't clear out the old versions though, so I will have to add a clear step to webpack config.
 
 Include static files from source in the output, e.g. html
