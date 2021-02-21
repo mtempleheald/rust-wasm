@@ -11,7 +11,7 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 
 ## Useful links
 
-- [Rust WASM book](https://rustwasm.github.io/docs/book/introduction.html) - The official resource on Rust + Web Assembly
+- [Rust WASM book](https://rustwasm.github.io/docs/book) - The official resource on Rust + Web Assembly
 - [Doug Milford demo](https://github.com/dmilford/rust-3d-demo) - Seeing his video on YouTube motivated me to start this
 - [Wasm-pack book](https://rustwasm.github.io/wasm-pack/book/) - the current/future of build of rust/wasm applications, uses npm for now
 
@@ -37,19 +37,27 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 
 Must support hot reload during development
 - Dynamic web stuff needs to trigger on any change, this is standard practice and fast.
-- WASM stuff takes longer to build, so there's a choice to make:
+- WASM stuff takes longer to build, so there's a choice to make, depending whether this is a rust program running in Wasm, or a JS program which uses some Rust:
   - rebuild on any change - listen on src folder and use [Wasm Pack Webpack plug-in](https://github.com/wasm-tool/wasm-pack-plugin).
     This is the approach taken by [Doug Milford's 3D demo](https://github.com/dmilford/rust-3d-demo)  (disable auto-save)
   - manually trigger `wasm pack build`, use npm dependency on /pkg to register changes.
-    This is the approach taken by [Rustwasm book](https://rustwasm.github.io/docs/book/) with little discussion
+    This is the approach taken by [Rustwasm book](https://rustwasm.github.io/docs/book/)
+    This requires 2 command windows to be open; the live reload plus anytime we want to build the wasm solution.
 
 Must support hashing of wasm modules to facilitate cache-busting, again there are multiple approaches
 - Use [HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin) to generate hashes for us as per Doug Milford's demo.
 - Magic.  I can't work out how the Rustwasm book approach does this (webpack default auto hashing?) but the output bootstrap file references <hash>.module.wasm.
   It doesn't clear out the old versions though, so I will have to add a clear step to webpack config.
 
-Include static files from source in the output
+Include static files from source in the output, e.g. html
 - [Copy Webpack Plugin](https://www.npmjs.com/package/copy-webpack-plugin) 
+
+Want to import modules statically [if possible](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports)
+- Static `import * as <module> from "<module-listed-as-dependency>";`
+  Loaded this way by default in rustwasm book example.
+  Requires the module load to be deferred (or listen for onLoad) before execution, if triggering without user intervention.
+- Dynamic `const <module-promise> = import('./pkg/<module-name>');`
+  We can then trigger any commands we want to run in the then() method of the promise, e.g. single page canvas
 
 
 ## Change History
@@ -66,7 +74,7 @@ I have no intention of keeping this section up to date long term, however I alwa
 - `npm install ./www` install web dependencies (one-off)
 - tidy up package.json, not likely to publish but kept some identity stuff anyway, removed unneccesary hello-wasm-pack dependency.
 - Discover that VS Code now hides .git folder by default `File > Settings > files.exclude`, remove hidden git submodule
-- 
+- Decided to go with small WebGL game as I can probably learn more from that approach, JS boilerplate is in place, evidenced in browser console.
 
 
 
