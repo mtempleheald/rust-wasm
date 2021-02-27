@@ -1,6 +1,13 @@
-import * as wasm from "rust-wasm";
+import {verify, Universe, Cell, AppClient} from "rust-wasm";
 
-wasm.verify();
+verify();
+
+const pre = document.getElementById("game");
+const universe = Universe.new();
+pre.textContent = universe.render();
+
+
+// WebGL stuff from here, come back to this later 
 
 const canvas = document.getElementById("appCanvas");
 const gl = canvas.getContext("webgl", { antialias: true});
@@ -9,8 +16,8 @@ if (!gl) {
     console.log("Failed to initialize WebGL");
 }
 
-const FPS_THROTTLE = 1000.0 / 30.0; // 30 fps
-const app = new wasm.AppClient();
+const FPS_THROTTLE = 1000.0 / 1.0; // 30 fps - for now leave at 1 to reduce impact during initial setup
+const app = new AppClient();
 const initialTime = Date.now();
 let lastDrawTime = -1;// In milliseconds
 

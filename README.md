@@ -16,6 +16,8 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 - [Doug Milford demo](https://github.com/dmilford/rust-3d-demo) - Seeing his video on YouTube motivated me to start this
 - [Wasm-pack book](https://rustwasm.github.io/wasm-pack/book/) - the current/future of build of rust/wasm applications, uses npm for now
 - [Wasm Bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) - wasm-bindgen reference inc WebGL examples
+- [WebGL fundamentals](https://webglfundamentals.org/)
+- [WebGL_API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 
 ## Useful commands
 
