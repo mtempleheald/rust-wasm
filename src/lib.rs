@@ -1,3 +1,4 @@
+mod game_state;
 mod utils;
 mod gl_setup;
 
@@ -67,10 +68,6 @@ impl fmt::Display for Universe {
 
 #[wasm_bindgen]
 impl Universe {
-    fn get_index(&self, row: u32, column: u32) -> usize {
-        (row * self.width + column) as usize
-    }
-    
     // Construct universe based on rules inferred from examining https://archive.org/details/MiceMen_1020 (lost the original CD)
     // Columns 1, 21               == transpose ◻◻◻◻◻◻◻◻◻◻◻◻◻
     // Column 11                   == transpose ◻◼◼◻◼◼◻◼◼◻◼◼◻
@@ -88,20 +85,26 @@ impl Universe {
             for col in 1..width+1 {
                 cells.push(
                     match col {
-                        1 | 21          => Cell::Empty,
-                        11              =>  match row {
-                                                2|3|5|6|8|9|11|12   => Cell::Block,
-                                                _                   => Cell::Empty,
-                                            },
-                        2|6|10|12|16|20 =>  match row {
-                                                1|4|7|10|13         => Cell::Block,
-                                                _                   => Cell::Empty,
-                                            },
+                        1 | 21  => Cell::Empty,
+                        11      =>  match row {
+                                        2|3|5|6|8|9|11|12   => Cell::Block,
+                                        _                   => Cell::Empty,
+                                    },
+                        2|6|10 =>   match row {
+                                        1|4|7|10|13         => Cell::Block,
+                                        3|6|9|12            => Cell::Player1,// TODO: more random, yet predictable spread
+                                        _                   => Cell::Empty,
+                                    },
+                        12|16|20 => match row {
+                                        1|4|7|10|13         => Cell::Block,
+                                        3|6|9|12            => Cell::Player2,// TODO: more random, yet predictable spread
+                                        _                   => Cell::Empty,
+                                    },
                         _ => if rand::thread_rng().gen_range(1..=13) <= 7 { Cell::Block }else{Cell::Empty},
+                        // TODO: less random blocks; 6-8 blocks per col, equal split L/R, no groups of more than 4 blocks in a column
                     });
             }
         }
-        // TODO: Add players
 
         Universe {
             width,
@@ -110,10 +113,38 @@ impl Universe {
         }
     }
 
+
+    pub fn update(&mut self, 
+        //_player: game_state::Player, 
+        //_column: game_state::Column, 
+        //_action: game_state::Action
+    ) {
+
+        
+        
+        let mut _next = self.cells().clone();
+
+    }
+
     pub fn render(&self) -> String {
         self.to_string()
     }
 
+    pub fn width(&self) -> u32 {
+        self.width
+    }
+
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
+
+    // fn get_index(&self, row: u32, column: u32) -> usize {
+    //     (row * self.width + column) as usize
+    // }
 }
 
 
@@ -128,10 +159,9 @@ impl Universe {
 pub struct AppClient {
     gl: WebGlRenderingContext, // Graphics layer
 }
-
 #[wasm_bindgen]
 impl AppClient {
-    
+ 
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
         utils::set_panic_hook();
@@ -141,14 +171,12 @@ impl AppClient {
             gl: gl,
         }
     }
-
     pub fn update(&mut self, _time: f32, _height: f32, _width: f32) -> Result<(), JsValue> {
         log("AppClient.update called");
         Ok(())
     }
-
     pub fn render(&self) {
+        self.gl.clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT);
         log("AppClient.render called");
     }
-
 }

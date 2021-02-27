@@ -4,12 +4,33 @@
     <meta charset="utf-8">
     <title>MTH rust-wasm</title>
     <link rel="icon" href="data:;base64,iVBORwOKGO=" /> <!-- Avoid missing icon errors -->
-  </head>
-  <body style="background-color: silver; margin: 0; overflow: hidden;">
-    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>    
+    <style>
+      body {
+        background-color: black;
+        margin: 50px 0 0 0; 
+        overflow: hidden;
+        justify-content: center;    
+        align-items: center;    
+        display: flex;    
+        flex-direction: column;
+      }
+      h1 {
+        color: silver;
+      }
+      #game {
+        border: 2px solid white;
+      }
+    </style>
     <script defer src="./bootstrap.js"></script>
+  </head>
+  <body>
 
-    <pre id="game" style="font-size: x-large;"></pre>
+    <h1>Micemen (a tribute to)</h1>
+
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    
+
+    <canvas id="game" style="font-size: x-large;"></canvas>
 
     <canvas id="appCanvas"></canvas>    
 
