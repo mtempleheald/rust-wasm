@@ -33,10 +33,7 @@ jobs:
       # Deploy (main branch only)
       - name: Deploy to GitHub Pages
         if: job.status == 'success' && github.ref == 'refs/heads/main'
-        uses: crazy-max/ghaction-github-pages@v2.2.0
+        uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          target_branch: gh-pages
-          build_dir: /
-          jekyll: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: /        

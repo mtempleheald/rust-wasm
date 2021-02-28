@@ -45,7 +45,7 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
   - [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
 - GitHub Actions 
   - [Super-Linter](https://github.com/github/super-linter)
-  - [GitHub Pages](https://github.com/marketplace/actions/github-pages)
+  - [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages)
   - [Node setup](https://github.com/marketplace/actions/setup-node-js-environment)
   - [wasm-pack](https://rustwasm.github.io/docs/wasm-bindgen/wasm-bindgen-test/continuous-integration.html#github-actions)
 
@@ -92,6 +92,6 @@ I have no intention of keeping this section up to date long term, however I alwa
 - tidy up package.json, not likely to publish but kept some identity stuff anyway, removed unneccesary hello-wasm-pack dependency.
 - Discover that VS Code now hides .git folder by default `File > Settings > files.exclude`, remove hidden git submodule
 - Decided to go with small WebGL game as I can probably learn more from that approach, JS boilerplate is in place, evidenced in browser console.
-
-
+- Decided to get a basic game working first, something to see.  Using canvas but not WebGL yet.
+- Added GitHub Actions CICD.
 
