@@ -24,34 +24,32 @@ gameCanvas.width = (CELL_SIZE + 1) * width + 1
 const ctx = gameCanvas.getContext('2d')
 
 const renderLoop = () => {
-    // universe.tick();
-    drawGrid();
-    drawCells();
-    // requestAnimationFrame(renderLoop);
+  // universe.tick()
+  drawGrid()
+  drawCells()
+  // requestAnimationFrame(renderLoop)
 }
 
 const drawGrid = () => {
-    ctx.beginPath();
-    ctx.strokeStyle = GRID_COLOUR;
-  
-    // Vertical lines.
-    for (let i = 0; i <= width; i++) {
-      ctx.moveTo(i * (CELL_SIZE + 1) + 1, 0)
-      ctx.lineTo(i * (CELL_SIZE + 1) + 1, (CELL_SIZE + 1) * height + 1)
-    }
-  
-    // Horizontal lines.
-    for (let j = 0; j <= height; j++) {
-      ctx.moveTo(0,                           j * (CELL_SIZE + 1) + 1)
-      ctx.lineTo((CELL_SIZE + 1) * width + 1, j * (CELL_SIZE + 1) + 1)
-    }
-  
-    ctx.stroke();
-};
+  ctx.beginPath()
+  ctx.strokeStyle = GRID_COLOUR
+  // Vertical lines
+  for (let i = 0; i <= width; i++) {
+    ctx.moveTo(i * (CELL_SIZE + 1) + 1, 0)
+    ctx.lineTo(i * (CELL_SIZE + 1) + 1, (CELL_SIZE + 1) * height + 1)
+  }
+  // Horizontal lines
+  for (let j = 0; j <= height; j++) {
+    ctx.moveTo(0,                           j * (CELL_SIZE + 1) + 1)
+    ctx.lineTo((CELL_SIZE + 1) * width + 1, j * (CELL_SIZE + 1) + 1)
+  }
+
+  ctx.stroke()
+}
 
 const getIndex = (row, column) => {
-    return row * width + column
-};
+  return row * width + column
+}
 
 const drawCells = () => {
   const cellsPtr = universe.cells()
@@ -61,9 +59,7 @@ const drawCells = () => {
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-
       const idx = getIndex(row, col)
-
       switch (cells[idx]) {
         case Cell.Block:
           ctx.fillStyle = BLOCK_COLOUR
@@ -76,18 +72,17 @@ const drawCells = () => {
           break
         default:
           ctx.fillStyle = EMPTY_COLOUR
-      };
-
+      }
       ctx.fillRect(
         col * (CELL_SIZE + 1) + 1,
         row * (CELL_SIZE + 1) + 1,
         CELL_SIZE,
         CELL_SIZE
-      );
+      )
     }
-  }    
+  }
   ctx.stroke()
-};
+}
 
 renderLoop()
 
@@ -106,11 +101,11 @@ renderLoop()
 // const initialTime = Date.now()
 // let lastDrawTime = -1 // In milliseconds
 // function render() {
-//   window.requestAnimationFrame(render);
-//   const currTime = Date.now();
+//   window.requestAnimationFrame(render)
+//   const currTime = Date.now()
 //   // implement throttling
 //   if (currTime >= lastDrawTime + FPS_THROTTLE) {
-//     lastDrawTime = currTime;
+//     lastDrawTime = currTime
 //     // support resizing of window
 //     if (window.innerHeight !== canvas.height || window.innerWidth !== canvas.width) {
 //       canvas.height = window.innerHeight

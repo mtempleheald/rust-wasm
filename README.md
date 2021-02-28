@@ -15,7 +15,7 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 - [Rust WASM book](https://rustwasm.github.io/docs/book) - The official resource on Rust + Web Assembly
 - [Doug Milford demo](https://github.com/dmilford/rust-3d-demo) - Seeing his video on YouTube motivated me to start this
 - [Wasm-pack book](https://rustwasm.github.io/wasm-pack/book/) - the current/future of build of rust/wasm applications, uses npm for now
-- [Wasm Bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) - wasm-bindgen reference inc WebGL examples
+- [Wasm Bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) - wasm-bindgen reference inc WebGL examples & CI/CD
 - [WebGL fundamentals](https://webglfundamentals.org/)
 - [WebGL_API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 
@@ -30,11 +30,14 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 `npm run build` (from www dir) build app using webpack
 
 
-## Rust dependencies
+## Dependencies
 
-- [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating between WebAssembly and JavaScript.
-- [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook) for logging panic messages to the developer console.
-- [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
+- Rust
+  - [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating between WebAssembly and JavaScript.
+  - [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook) for logging panic messages to the developer console.
+  - [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
+- CI/CD
+  - [GitHub Actions - super-linter](https://github.com/github/super-linter)
 
 
 ### Webpack
