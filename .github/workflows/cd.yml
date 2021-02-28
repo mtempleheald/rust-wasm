@@ -4,14 +4,14 @@ name: Publish to GitHub Pages
 on: [push, pull_request]
 
 jobs:
-  test:
+  cicd:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       # Resolve external dependencies
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-      - name: Setup Node.js environment
+      - name: Use Node.js
         uses: actions/setup-node@v2.1.5
         with:
           node-version: '10.x'
@@ -25,8 +25,12 @@ jobs:
       - name: Test wasm (Firefox)
         run: wasm-pack test --headless --firefox
       - name: Install web dependencies
+        with:
+          path: ./www
         run: npm ci # Do not modify package-lock.json
       - name: Compile website
+        with:
+          path: ./www
         run: npm run build
       # Deploy (main branch only)
       - name: Deploy to GitHub Pages
