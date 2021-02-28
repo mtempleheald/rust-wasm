@@ -23,6 +23,8 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 - [WebGL fundamentals](https://webglfundamentals.org/)
 - [WebGL_API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 - [GitHub Actions context properties](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context)
+- [GitHub Actions Node example](https://stackoverflow.com/questions/58347746/automating-the-build-and-publish-process-with-github-actions-and-github-package)
+- [GitHub Actions Blazor example](https://blog.zhaytam.com/2020/06/08/deploy-blazor-wasm-github-pages-using-actions/)
 
 ## Useful commands
 

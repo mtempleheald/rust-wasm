@@ -1,8 +1,7 @@
 name: Publish to GitHub Pages
 
-on: 
-  [push, pull_request]:
-    branches: [main]
+# Always run CI, CD conditional on main branch
+on: [push, pull_request]
 
 jobs:
   test:
