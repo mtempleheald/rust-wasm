@@ -22,6 +22,7 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 - [Wasm Bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) - wasm-bindgen reference inc WebGL examples & CI/CD
 - [WebGL fundamentals](https://webglfundamentals.org/)
 - [WebGL_API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+- [GitHub Actions context properties](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context)
 
 ## Useful commands
 
@@ -40,8 +41,11 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
   - [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating between WebAssembly and JavaScript.
   - [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook) for logging panic messages to the developer console.
   - [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
-- CI/CD
-  - [GitHub Actions - super-linter](https://github.com/github/super-linter)
+- GitHub Actions 
+  - [Super-Linter](https://github.com/github/super-linter)
+  - [GitHub Pages](https://github.com/marketplace/actions/github-pages)
+  - [Node setup](https://github.com/marketplace/actions/setup-node-js-environment)
+  - [wasm-pack](https://rustwasm.github.io/docs/wasm-bindgen/wasm-bindgen-test/continuous-integration.html#github-actions)
 
 
 ### Webpack
