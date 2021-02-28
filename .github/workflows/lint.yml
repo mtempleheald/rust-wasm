@@ -2,7 +2,7 @@ name: Lint Code Base
 
 # Trigger for all branches which are not workflow-managed
 on: 
-  push
+  push:
     branches-ignore: [gh-pages]
 
 jobs:
