@@ -25,13 +25,11 @@ jobs:
       - name: Test wasm (Firefox)
         run: wasm-pack test --headless --firefox
       - name: Install web dependencies
-        with:
-          path: ./www
         run: npm ci # Do not modify package-lock.json
+        working-directory: www
       - name: Compile website
-        with:
-          path: ./www
         run: npm run build
+        working-directory: www
       # Deploy (main branch only)
       - name: Deploy to GitHub Pages
         if: success() && github.ref == 'refs/heads/main'
