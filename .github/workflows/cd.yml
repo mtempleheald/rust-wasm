@@ -30,7 +30,7 @@ jobs:
         run: npm run build
       # Deploy (main branch only)
       - name: Deploy to GitHub Pages
-        if: success() && github.ref == 'refs/heads/main')
+        if: success() && github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
           target_branch: gh-pages
