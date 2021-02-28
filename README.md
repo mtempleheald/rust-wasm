@@ -10,6 +10,10 @@ Not sure what this will end up being, likely one of (or a combination of):
 I know it isn't the official WASM line but I really am interested in a world without JavaScript, or any runtime errors.
 Svelte and Elm also interest me, but could wasm be the silver bullet?
 
+## Status
+
+[![GitHub Super-Linter](https://github.com/mtempleheald/rust-wasm/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 ## Useful links
 
 - [Rust WASM book](https://rustwasm.github.io/docs/book) - The official resource on Rust + Web Assembly

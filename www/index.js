@@ -1,7 +1,7 @@
-import { verify, Universe, Cell, AppClient } from 'rust-wasm'
+import { verify, Universe, Cell/*, AppClient*/ } from 'rust-wasm'
 import { memory } from '../pkg/rust_wasm_bg'
 
-verify();
+verify()
 
 // build game Universe
 const universe = Universe.new()
@@ -9,7 +9,7 @@ const width = universe.width()
 const height = universe.height()
 
 // configure display settings
-const CELL_SIZE = 40; // px
+const CELL_SIZE = 40 // px
 const GRID_COLOUR = '#000000'
 const EMPTY_COLOUR = '#000000'
 const BLOCK_COLOUR = '#E69E19'
@@ -54,7 +54,6 @@ const getIndex = (row, column) => {
 const drawCells = () => {
   const cellsPtr = universe.cells()
   const cells = new Uint8Array(memory.buffer, cellsPtr, width * height)
-  
   ctx.beginPath()
 
   for (let row = 0; row < height; row++) {
@@ -88,7 +87,7 @@ renderLoop()
 
 //
 //
-// WebGL stuff from here, come back to this later 
+// WebGL stuff from here, come back to this later
 //
 //
 // const canvas = document.getElementById('app-canvas')
