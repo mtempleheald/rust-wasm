@@ -6,7 +6,7 @@ use web_sys::WebGlRenderingContext as GL;
 pub fn initialize_webgl_context() -> Result<WebGlRenderingContext, JsValue> {
     let window = window().unwrap();
     let document = window.document().unwrap();
-    let canvas = document.get_element_by_id("appCanvas").unwrap();
+    let canvas = document.get_element_by_id("app-canvas").unwrap();
     let canvas: web_sys::HtmlCanvasElement = canvas.dyn_into::<web_sys::HtmlCanvasElement>()?;
     let gl: WebGlRenderingContext = canvas.get_context("webgl")?.unwrap().dyn_into()?;
 

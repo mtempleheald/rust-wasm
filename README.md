@@ -22,10 +22,10 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 ## Useful commands
 
 `wasm-pack build` build wasm package
-`wasm-pack test --headless --firefox` run tests in headless browser 
+`wasm-pack test --headless --firefox` run tests in headless browser
 `wasm-pack publish` publish to npm, doubt I'll be doing this.
 
-`npm install ./www` (one-off) grab all web dependencies from package.json 
+`npm install ./www` (one-off) grab all web dependencies from package.json
 `npm run start` (from www dir) run app with live reloading using webpack
 `npm run build` (from www dir) build app using webpack
 
@@ -54,7 +54,7 @@ Must support hashing of wasm modules to facilitate cache-busting, again there ar
   It doesn't clear out the old versions though, so I will have to add a clear step to webpack config.
 
 Include static files from source in the output, e.g. html
-- [Copy Webpack Plugin](https://www.npmjs.com/package/copy-webpack-plugin) 
+- [Copy Webpack Plugin](https://www.npmjs.com/package/copy-webpack-plugin)
 
 Want to import modules statically [if possible](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports)
 - Static `import * as <module> from "<module-listed-as-dependency>";`
