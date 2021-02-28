@@ -94,4 +94,5 @@ I have no intention of keeping this section up to date long term, however I alwa
 - Decided to go with small WebGL game as I can probably learn more from that approach, JS boilerplate is in place, evidenced in browser console.
 - Decided to get a basic game working first, something to see.  Using canvas but not WebGL yet.
 - Added GitHub Actions CICD.
-
+- Rediscovered that GitHub Pages requires index.html to live at either / or /docs.  Mine lives at /www
+  Had considered changing this anyway to merge node_modules and simplify commands during local dev
