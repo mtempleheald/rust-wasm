@@ -15,7 +15,7 @@
   "author": "Mark Temple-Heald <mtempleheald@hotmail.com>",
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
-    "rust-wasm": "file:../pkg"
+    "rust-wasm": "file:pkg"
   },
   "devDependencies": {
     "webpack": "^4.29.3",
