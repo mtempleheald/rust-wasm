@@ -6,13 +6,15 @@ Not sure what this will end up being, likely one of (or a combination of):
 - a small, probably 2D game
 - seeing what a boring enterprise web app could be without JS [e.g.](https://blog.logrocket.com/the-current-state-of-rust-web-frameworks/)
 - a fractal generator on a 2D canvas
+- [wasi](https://wasi.dev) - could this replace docker?
+- gRPC in Rust - could this be an E2E secure microservices website built entirely in Rust?
 
 I know it isn't the official WASM line but I really am interested in a world without JavaScript, or any runtime errors.
 Svelte and Elm also interest me, but could wasm be the silver bullet?
 
 ## Status
 
-[![GitHub Super-Linter](https://github.com/mtempleheald/rust-wasm/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+![Linter](https://github.com/mtempleheald/rust-wasm/workflows/Lint%20Code%20Base/badge.svg)
 
 ## Useful links
 
@@ -39,10 +41,13 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 
 ## Dependencies
 
-- Rust
-  - [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating between WebAssembly and JavaScript.
-  - [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook) for logging panic messages to the developer console.
-  - [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
+- Rust program
+  - [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen) for communicating between WebAssembly and JavaScript.
+  - [console_error_panic_hook](https://github.com/rustwasm/console_error_panic_hook) for logging panic messages to the developer console.
+  - [wee_alloc](https://github.com/rustwasm/wee_alloc), an allocator optimized for small code size.
+- Testing
+  - [wasm-bindgen-test]https://rustwasm.github.io/docs/wasm-bindgen/wasm-bindgen-test/usage.html
+  - [quickcheck](https://crates.io/crates/quickcheck)
 - GitHub Actions 
   - [Super-Linter](https://github.com/github/super-linter)
   - [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages)
@@ -96,3 +101,4 @@ I have no intention of keeping this section up to date long term, however I alwa
 - Added GitHub Actions CICD.
 - Rediscovered that GitHub Pages requires index.html to live at either / or /docs.  Mine lives at /www
   Had considered changing this anyway to merge node_modules and simplify commands during local dev
+- Removed the .gitignore lines for /docs and /pkg to finally see the app working in GH Pages
