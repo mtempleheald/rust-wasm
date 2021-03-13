@@ -1,20 +1,18 @@
-# Readme
+# Rustmen
 
-A project for me to get to grips with Rust and Web Assembly.
-I dabbled a while back, before wasm-pack but time got away from me.
-Not sure what this will end up being, likely one of (or a combination of):
-- a small, probably 2D game
-- seeing what a boring enterprise web app could be without JS [e.g.](https://blog.logrocket.com/the-current-state-of-rust-web-frameworks/)
+[Micemen](https://archive.org/details/MiceMen_1020) is a game created in the 90s that I had on a 1000 games CD compendium.
+
+Rust with WebAssembly has been on my radar for a long time but I've never completed a full project using it.
+This game seems like a suitable application of the technology and one which I could learn from.
+
+In parallel I'm doing investigations into more "enterprisey" software with rustwasm, but I need to keep these separate to reduce confusion.
+
+Also interested in related topics:
 - a fractal generator on a 2D canvas
-- [wasi](https://wasi.dev) - could this replace docker?
-- gRPC in Rust - could this be an E2E secure microservices website built entirely in Rust?
-
-I know it isn't the official WASM line but I really am interested in a world without JavaScript, or any runtime errors.
-Svelte and Elm also interest me, but could wasm be the silver bullet?
 
 ## Status
 
-![Linter](https://github.com/mtempleheald/rust-wasm/workflows/Lint%20Code%20Base/badge.svg)
+![Continuous Integration](https://github.com/mtempleheald/rustmen/workflows/ci/badge.svg)
 
 ## Useful links
 
@@ -37,7 +35,6 @@ Svelte and Elm also interest me, but could wasm be the silver bullet?
 `npm install ./www` (one-off) grab all web dependencies from package.json
 `npm run start` (from www dir) run app with live reloading using webpack
 `npm run build` (from www dir) build app using webpack
-
 
 ## Dependencies
 

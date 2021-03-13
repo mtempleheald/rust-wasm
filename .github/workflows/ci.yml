@@ -1,4 +1,4 @@
-name: Lint Code Base
+name: Continuous Integration
 
 # Trigger for all branches which are not workflow-managed
 on: 
@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: Lint Code Base
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:

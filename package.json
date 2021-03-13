@@ -1,5 +1,5 @@
 {
-  "name": "rust-wasm-web",
+  "name": "rustmen",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "Mark Temple-Heald <mtempleheald@hotmail.com>",
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
-    "rust-wasm": "file:pkg"
+    "rustmen": "file:pkg"
   },
   "devDependencies": {
     "webpack": "^4.29.3",

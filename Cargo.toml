@@ -1,11 +1,11 @@
 [package]
-name = "rust-wasm"
+name = "rustmen"
 version = "0.1.0"
 authors = ["Mark Temple-Heald <mtempleheald@hotmail.com>"]
-description = "MTH Rust Wasm playground"
+description = "Tribute to Micemen written in Rust"
 edition = "2018"
 license = "MIT/Apache-2.0"
-repository = "https://github.com/mtempleheald/rust-wasm"
+repository = "https://github.com/mtempleheald/rustmen"
 
 # cdylib for wasm, rlib for unit testing
 [lib]

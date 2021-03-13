@@ -1,5 +1,5 @@
-import { verify, Universe, Cell/*, AppClient*/ } from 'rust-wasm'
-import { memory } from './pkg/rust_wasm_bg'
+import { verify, Universe, Cell/*, AppClient*/ } from 'rustmen'
+import { memory } from './pkg/rustmen_bg'
 
 verify()
 
